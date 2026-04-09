@@ -19,37 +19,26 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        /* Header Tasarımı */
         header {
-            height: 65vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(5, 10, 21, 0.85), rgba(5, 10, 21, 0.85)), 
+            background: linear-gradient(rgba(5, 10, 21, 0.8), rgba(5, 10, 21, 0.8)), 
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             text-align: center;
             border-bottom: 3px solid var(--neon-orange);
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin: 0;
             text-shadow: 0 0 15px var(--neon-blue);
             text-transform: uppercase;
@@ -59,13 +48,13 @@
             color: var(--neon-orange);
             font-weight: bold;
             letter-spacing: 4px;
-            margin-top: 15px;
-            text-transform: uppercase;
+            margin-top: 10px;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        /* Ana İçerik */
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
-        section { margin-bottom: 80px; }
+        section { margin-bottom: 60px; }
 
         h2 {
             border-left: 5px solid var(--neon-orange);
@@ -73,73 +62,128 @@
             color: var(--neon-orange);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .timeline-item {
+        .card {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 10px;
             border-left: 3px solid var(--neon-blue);
-            margin-bottom: 25px;
-            transition: 0.3s;
+            margin-bottom: 20px;
         }
 
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.1);
-        }
+        h3 { margin: 0; color: var(--neon-blue); }
+        .sub-text { color: var(--neon-orange); font-weight: bold; font-size: 0.9rem; }
+        ul { padding-left: 20px; color: var(--text-dim); }
 
-        h3 { margin: 0; color: var(--neon-blue); font-size: 1.3rem; }
-        .sub-info { color: var(--neon-orange); font-weight: 600; display: block; margin-bottom: 10px; font-size: 0.9rem; }
-        ul { padding-left: 20px; color: var(--text-dim); margin-top: 10px; }
-        li { margin-bottom: 5px; }
-
-        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        /* Yetenekler */
+        .tag-group { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
-            padding: 8px 16px;
+            padding: 6px 12px;
             border: 1px solid var(--neon-blue);
             color: var(--neon-blue);
-            border-radius: 20px;
+            border-radius: 4px;
             font-size: 0.85rem;
-            background: rgba(0, 212, 255, 0.05);
         }
 
         .contact-box {
-            border: 2px dashed #1b2533;
-            padding: 40px;
+            border: 2px dashed var(--text-dim);
+            padding: 30px;
             text-align: center;
-            border-radius: 15px;
             color: var(--text-dim);
-            font-style: italic;
+            border-radius: 10px;
         }
+
+        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Halil Bilkan</h1>
-        <div class="subtitle">Educator • Designer • Content Creator</div>
+        <div class="subtitle">Educator • Designer • Marketer</div>
     </header>
 
     <div class="container">
         
-        <section class="reveal">
-            <h2>Professional Profile</h2>
-            <p>A multi-talented professional with a strong background in English Language Teaching, Content Management, and Graphic Design. Leveraging a C2 level of English proficiency alongside expertise in modern design tools and blockchain technologies to deliver impactful digital solutions.</p>
+        <section>
+            <h2>Professional Summary</h2>
+            <p>English Language Teaching professional with C2 proficiency, combined with expertise in Graphic Design (Adobe Suite) and Crypto Marketing. Experienced in content management and global project relations.</p>
         </section>
 
-        <section class="reveal">
+        <section>
             <h2>Work Experience</h2>
-            
-            <div class="timeline-item">
+            <div class="card">
                 <h3>English Teacher</h3>
-                <span class="sub-info">TR State School | 2021 - Present</span>
+                <span class="sub-text">TR State School | 2021 - Present</span>
+                <ul><li>Teaching English language to children.</li></ul>
+            </div>
+            <div class="card">
+                <h3>Head of Content</h3>
+                <span class="sub-text">Aybee Bilişim | 2022 - 2023</span>
+                <ul><li>Managing content team and creative graphic production.</li></ul>
+            </div>
+            <div class="card">
+                <h3>Crypto Marketing</h3>
+                <span class="sub-text">Univel Metaverse | 2022 - 2023</span>
+                <ul><li>Global relations and marketing solutions for blockchain projects.</li></ul>
+            </div>
+            <div class="card">
+                <h3>Graphic Designer</h3>
+                <span class="sub-text">Griffin Art | 2021 - 2022</span>
+                <ul><li>Illustrations, 2D images, and digital content design.</li></ul>
+            </div>
+            <div class="card">
+                <h3>Other Experience</h3>
                 <ul>
-                    <li>Teaching English language to kids.</li>
+                    <li><strong>Basketball Referee:</strong> Turkish Basketball Federation (2015-2017)</li>
+                    <li><strong>Hospitality:</strong> Bartender/Waiter at Voyage & Marti Hotels (2015-2018)</li>
                 </ul>
             </div>
+        </section>
 
-            <div class="timeline-item">
-                <h3>Head of Content / Content Creator</h3>
-                <span
+        <section>
+            <h2>Education</h2>
+            <div class="card">
+                <h3>Political Sciences</h3>
+                <span class="sub-text">Gaziantep University | 2022 - Present</span>
+            </div>
+            <div class="card">
+                <h3>English Language Teaching</h3>
+                <span class="sub-text">Amasya University | 2014 - 2019</span>
+            </div>
+            <div class="card">
+                <h3>English Philology (Erasmus+)</h3>
+                <span class="sub-text">Pomeranian Academy (Poland) | 2017 - 2018</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="tag-group">
+                <span class="tag">English (C2)</span>
+                <span class="tag">Russian (A2)</span>
+                <span class="tag">Adobe Photoshop</span>
+                <span class="tag">Adobe Illustrator</span>
+                <span class="tag">After Effects</span>
+                <span class="tag">Blockchain Analysis</span>
+                <span class="tag">Microsoft Office</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <div class="contact-box">
+                Contact information is hidden for privacy.
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Halil Bilkan
+    </footer>
+
+</body>
+</html>

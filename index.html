@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halil Bilkan | Professional Portfolio</title>
+    <title>Halil Bilkan | Portfolio</title>
     <style>
         :root {
             --bg-color: #050a15;
@@ -20,9 +20,9 @@
             color: var(--text-main);
             margin: 0;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Scroll Animasyonu */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -34,7 +34,7 @@
         }
 
         header {
-            height: 60vh;
+            height: 65vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -43,14 +43,23 @@
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             text-align: center;
             border-bottom: 3px solid var(--neon-orange);
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             margin: 0;
             text-shadow: 0 0 15px var(--neon-blue);
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--neon-orange);
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-top: 15px;
             text-transform: uppercase;
         }
 
@@ -59,38 +68,50 @@
         section { margin-bottom: 80px; }
 
         h2 {
-            border-left: 4px solid var(--neon-orange);
+            border-left: 5px solid var(--neon-orange);
             padding-left: 15px;
             color: var(--neon-orange);
             text-transform: uppercase;
-            margin-bottom: 30px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
         }
 
         .timeline-item {
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             border-left: 3px solid var(--neon-blue);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            transition: 0.3s;
         }
 
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.1);
+        }
+
+        h3 { margin: 0; color: var(--neon-blue); font-size: 1.3rem; }
+        .sub-info { color: var(--neon-orange); font-weight: 600; display: block; margin-bottom: 10px; font-size: 0.9rem; }
+        ul { padding-left: 20px; color: var(--text-dim); margin-top: 10px; }
+        li { margin-bottom: 5px; }
+
+        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
-            padding: 6px 14px;
+            padding: 8px 16px;
             border: 1px solid var(--neon-blue);
             color: var(--neon-blue);
             border-radius: 20px;
-            display: inline-block;
-            margin: 5px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            background: rgba(0, 212, 255, 0.05);
         }
 
-        /* İletişim Kutuları */
         .contact-box {
-            border: 1px dashed var(--text-dim);
-            padding: 20px;
+            border: 2px dashed #1b2533;
+            padding: 40px;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 15px;
             color: var(--text-dim);
+            font-style: italic;
         }
     </style>
 </head>
@@ -98,75 +119,27 @@
 
     <header>
         <h1>Halil Bilkan</h1>
-        <p style="color: var(--neon-orange); font-weight: bold; letter-spacing: 3px;">DESIGN • EDUCATION • TECH</p>
+        <div class="subtitle">Educator • Designer • Content Creator</div>
     </header>
 
     <div class="container">
         
         <section class="reveal">
-            <h2>Hakkımda</h2>
-            <p>Eğitim, grafik tasarım ve dijital pazarlama alanlarında çok yönlü deneyime sahip bir profesyonelim. İngilizce öğretmenliği geçmişimi tasarım ve teknoloji vizyonuyla birleştiriyorum.</p>
+            <h2>Professional Profile</h2>
+            <p>A multi-talented professional with a strong background in English Language Teaching, Content Management, and Graphic Design. Leveraging a C2 level of English proficiency alongside expertise in modern design tools and blockchain technologies to deliver impactful digital solutions.</p>
         </section>
 
         <section class="reveal">
-            <h2>Deneyim</h2>
+            <h2>Work Experience</h2>
+            
             <div class="timeline-item">
-                <h3 style="margin:0; color:var(--neon-blue);">English Teacher</h3>
-                <small>TR State School | 2021 - Günümüz</small>
+                <h3>English Teacher</h3>
+                <span class="sub-info">TR State School | 2021 - Present</span>
+                <ul>
+                    <li>Teaching English language to kids.</li>
+                </ul>
             </div>
+
             <div class="timeline-item">
-                <h3 style="margin:0; color:var(--neon-blue);">Head of Content</h3>
-                <small>Aybee Bilişim | 2022 - 2023</small>
-            </div>
-            <div class="timeline-item">
-                <h3 style="margin:0; color:var(--neon-blue);">Crypto Marketing</h3>
-                <small>Univel Metaverse | 2022 - 2023</small>
-            </div>
-        </section>
-
-        <section class="reveal">
-            <h2>Eğitim</h2>
-            <div class="timeline-item">
-                <h3 style="margin:0; color:var(--neon-orange);">Siyaset Bilimi</h3>
-                <small>Gaziantep Üniversitesi | Devam Ediyor</small>
-            </div>
-            <div class="timeline-item">
-                <h3 style="margin:0; color:var(--neon-orange);">English Language Teaching</h3>
-                <small>Amasya Üniversitesi | 2014 - 2019</small>
-            </div>
-        </section>
-
-        <section class="reveal">
-            <h2>Yetenekler</h2>
-            <div class="tag">İngilizce (C2)</div>
-            <div class="tag">Adobe Illustrator</div>
-            <div class="tag">After Effects</div>
-            <div class="tag">Blockchain Analizi</div>
-            <div class="tag">Müfredat Geliştirme</div>
-        </section>
-
-        <section class="reveal">
-            <h2>İletişim</h2>
-            <div class="contact-box">
-                <p>İletişim bilgileri yakında buraya eklenecektir.</p>
-            </div>
-        </section>
-
-    </div>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
-</body>
-</html>
+                <h3>Head of Content / Content Creator</h3>
+                <span

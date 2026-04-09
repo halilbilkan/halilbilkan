@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Professional Neon</title>
+    <style>
+        :root {
+            --bg-color: #050a15;
+            --card-bg: #0d1626;
+            --neon-blue: #00d4ff;
+            --neon-orange: #ff9d00;
+            --text-main: #f0f6fc;
+            --text-dim: #8b949e;
+        }
+
+        .light-theme {
+            --bg-color: #ffffff;
+            --card-bg: #fdf7f0;
+            --text-main: #050a15;
+            --text-dim: #444444;
+            --neon-blue: #0077b6;
+            --neon-orange: #e67e22;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        /* Theme Toggle */
+        .theme-btn {
+            position: fixed; top: 20px; right: 20px;
+            width: 45px; height: 45px; border-radius: 50%;
+            background: var(--card-bg); border: 1px solid var(--neon-blue);
+            color: var(--neon-blue); cursor: pointer; z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        header {
+            height: 50vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            border-bottom: 2px solid var(--neon-orange);
+            box-shadow: 0 0 20px rgba(255, 157, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem; letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 30px var(--neon-blue);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+        h2 {
+            border-left: 4px solid var(--neon-orange);
+            padding-left: 15px; color: var(--neon-orange);
+            text-shadow: 0 0 8px var(--neon-orange);
+            margin-bottom: 30px;
+        }
+
+        /* Skills Section */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .tag {
+            padding: 8px 18px; border: 1px solid var(--neon-blue);
+            border-radius: 4px; color: var(--neon-blue); font-weight: 500;
+        }
+        .tag:nth-child(even) { border-color: var(--neon-orange); color: var(--neon-orange); }
+
+        /* Projects Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--card-bg); padding: 25px; border-radius: 8px;
+            border: 1px solid #1b2533; transition: 0.3s;
+        }
+        .card:hover {
+            border-color: var(--neon-blue); transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Contact Form */
+        input, textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px;
+            background: rgba(0,0,0,0.2); border: 1px solid #1b2533;
+            color: white; border-radius: 4px;
+        }
+        .btn {
+            padding: 12px 30px; background: transparent;
+            border: 2px solid var(--neon-orange); color: var(--neon-orange);
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn:hover { background: var(--neon-orange); color: #000; box-shadow: 0 0 15px var(--neon-orange); }
+    </style>
+</head>
+<body>
+
+    <button id="theme-toggle" class="theme-btn"><span id="theme-icon">🌙</span></button>
+
+    <header>
+        <h1>YOUR NAME</h1>
+        <p style="color: var(--neon-blue); font-weight: bold;">PORTFOLIO & RESUME</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Dedicated professional with a focus on creating impactful educational content and analyzing complex global trends. I specialize in turning data and language into interactive digital experiences.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="tag-container">
+                <span class="tag">Curriculum Design</span>
+                <span class="tag">Technical Writing</span>
+                <span class="tag">Educational Assessment</span>
+                <span class="tag">English Pedagogy</span>
+                <span class="tag">Data Visualization</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Vocabulary Marathon</h3>
+                    <p>An interactive digital module for 100+ core academic terms.</p>
+                </div>
+                <div class="card">
+                    <h3>Economic Analysis</h3>
+                    <p>Research on purchasing power and sociological trends.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top: 50px;">
+            <h2>Contact</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Email Address">
+                <textarea rows="4" placeholder="How can I help?"></textarea>
+                <button type="button" class="btn">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            themeIcon.innerText = body.classList.contains('light-theme') ? '☀️' : '🌙';
+            localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+        });
+
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.innerText = '☀️';
+        }
+    </script>
+</body>
+</html>

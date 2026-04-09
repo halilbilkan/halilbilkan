@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halil Bilkan | Portfolio</title>
+    <title>Halil Bilkan | Professional Portfolio</title>
     <style>
         :root {
             --bg-color: #050a15;
@@ -24,183 +24,171 @@
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
+            overflow-x: hidden;
             transition: background-color 0.4s;
-            line-height: 1.6;
         }
 
-        /* Theme Toggle */
-        .theme-btn {
-            position: fixed; top: 20px; right: 20px;
-            width: 45px; height: 45px; border-radius: 50%;
-            background: var(--card-bg); border: 1px solid var(--neon-blue);
-            color: var(--neon-blue); cursor: pointer; z-index: 1000;
-            display: flex; align-items: center; justify-content: center;
+        /* Reveal Animation on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         header {
-            height: 60vh;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            border-bottom: 2px solid var(--neon-orange);
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* Header Arka Plan Görseli */
+            background: linear-gradient(rgba(5, 10, 21, 0.8), rgba(5, 10, 21, 0.8)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
-            background: radial-gradient(circle at center, #101b30 0%, var(--bg-color) 70%);
+            border-bottom: 3px solid var(--neon-orange);
         }
 
         h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
+            font-size: clamp(2.5rem, 10vw, 5rem);
             margin: 0;
-            text-shadow: 0 0 15px var(--neon-blue);
+            text-shadow: 0 0 20px var(--neon-blue);
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .subtitle {
-            color: var(--neon-orange);
-            font-weight: bold;
-            letter-spacing: 3px;
-            margin-top: 10px;
-            text-transform: uppercase;
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--neon-blue); }
+            to { text-shadow: 0 0 30px var(--neon-blue), 0 0 40px var(--neon-blue); }
         }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
 
-        section { margin-bottom: 80px; }
+        section { margin-bottom: 100px; }
 
-        h2 {
-            border-left: 5px solid var(--neon-orange);
-            padding-left: 15px;
-            color: var(--neon-orange);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-        }
-
-        /* Experience & Education Cards */
         .timeline-item {
             background: var(--card-bg);
             padding: 25px;
-            border-radius: 10px;
-            border-left: 2px solid var(--neon-blue);
-            margin-bottom: 20px;
-            transition: 0.3s;
+            border-radius: 12px;
+            border-left: 3px solid var(--neon-blue);
+            margin-bottom: 25px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .timeline-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
         }
 
-        .date { color: var(--neon-blue); font-weight: bold; font-size: 0.9rem; }
-        .location { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px; }
-        h3 { margin: 10px 0 5px 0; color: #fff; }
-        .company { color: var(--neon-orange); font-weight: 600; margin-bottom: 10px; display: block; }
-
-        /* Skills Tags */
-        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
             padding: 8px 16px;
-            border: 1px solid var(--neon-blue);
+            border: 2px solid var(--neon-blue);
             color: var(--neon-blue);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: rgba(0, 212, 255, 0.05);
+            border-radius: 50px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        .tag.orange { border-color: var(--neon-orange); color: var(--neon-orange); }
+        .tag:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
 
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
+        .btn-neon {
+            padding: 15px 40px;
+            border: 2px solid var(--neon-orange);
+            color: var(--neon-orange);
+            background: transparent;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-decoration: none;
         }
-        .contact-item {
-            padding: 20px;
-            border: 1px solid #1b2533;
-            border-radius: 8px;
+        .btn-neon:hover {
+            background: var(--neon-orange);
+            color: #000;
+            box-shadow: 0 0 30px var(--neon-orange);
         }
-        .contact-item strong { display: block; color: var(--neon-blue); margin-bottom: 5px; }
-
-        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid #1b2533; }
     </style>
 </head>
 <body>
 
-    <button id="theme-toggle" class="theme-btn"><span id="theme-icon">🌙</span></button>
-
     <header>
         <h1>HALİL BİLKAN</h1>
-        <div class="subtitle">Educator • Content Creator • Designer</div>
-        <p style="margin-top: 20px; color: var(--text-dim);">Gaziantep, Türkiye</p>
+        <p style="color: var(--neon-orange); font-size: 1.5rem; letter-spacing: 5px;">DESIGN • EDUCATION • TECH</p>
+        <br>
+        <a href="#contact" class="btn-neon">LET'S CONNECT</a>
     </header>
 
     <div class="container">
-        
-        <section id="experience">
-            <h2>Work Experience</h2>
+        <section id="about" class="reveal">
+            <h2 style="color: var(--neon-orange);">Digital Presence</h2>
+            <p>Multidisciplinary professional specializing in English Language Teaching [cite: 8, 42], Graphic Design [cite: 22, 51, 66], and Blockchain Marketing[cite: 16, 55]. Building bridges between education and modern technology[cite: 76, 77].</p>
+        </section>
+
+        <section id="experience" class="reveal">
+            <h2 style="color: var(--neon-orange);">Experience Highlights</h2>
             
             <div class="timeline-item">
-                <span class="date">2021 - CURRENT</span>
-                <h3>English Teacher</h3>
-                <span class="company">Turkish Republic State School</span>
-                <p>Teaching English language to children within the state education system.</p>
+                <h3 style="color: var(--neon-blue);">Head of Content</h3>
+                <span style="color: var(--neon-orange);">Aybee Bilişim (2022-2023) [cite: 11]</span>
+                <p>Leading creative teams and graphic production[cite: 12, 13].</p>
             </div>
 
             <div class="timeline-item">
-                <span class="date">2022 - 2023</span>
-                <h3>Head of Content / Content Creator</h3>
-                <span class="company">Aybee Bilişim</span>
-                <p>Managed content teams, created professional graphics, and coordinated team collaborations.</p>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2022 - 2023</span>
-                <h3>Crypto Marketing & Global Relations</h3>
-                <span class="company">Univel Metaverse</span>
-                <p>Managed global project relations, created marketing solutions, and built partnerships with crypto projects and companies.</p>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2021 - 2022</span>
-                <h3>Graphic Designer</h3>
-                <span class="company">Griffin Art</span>
-                <p>Designed illustrations, produced 2D images, GIFs, stickers, and creative content for various projects.</p>
+                <h3 style="color: var(--neon-blue);">English Educator</h3>
+                <span style="color: var(--neon-orange);">TR State School (2021-Present) [cite: 7, 8]</span>
+                <p>Interactive language acquisition for young learners[cite: 9].</p>
             </div>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="timeline-item">
-                <span class="date">2022 - CURRENT</span>
-                <h3>Political Sciences</h3>
-                <span class="company">Gaziantep University</span>
-            </div>
-            <div class="timeline-item">
-                <span class="date">2014 - 2019</span>
-                <h3>English Language Teaching</h3>
-                <span class="company">Amasya University</span>
-            </div>
-            <div class="timeline-item">
-                <span class="date">2017 - 2018</span>
-                <h3>English Philology (Erasmus)</h3>
-                <span class="company">Pomeranian Academy (Poland)</span>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Technical & Language Skills</h2>
+        <section id="skills" class="reveal">
+            <h2 style="color: var(--neon-orange);">Mastered Tools</h2>
             <div class="tag-group">
-                <span class="tag">English (C2 Proficient)</span>
-                <span class="tag">Turkish (Native)</span>
-                <span class="tag">Russian (A2)</span>
-                <span class="tag orange">Adobe Photoshop</span>
-                <span class="tag orange">Adobe Illustrator</span>
-                <span class="tag orange">Adobe InDesign</span>
-                <span class="tag orange">After Effects</span>
-                <span class="tag orange">Adobe XD</span>
-                <span class="tag">Blockchain Analysis</span>
-                <span class="tag">Microsoft Office Suite</span>
+                <span class="tag">Adobe Illustrator </span>
+                <span class="tag">After Effects </span>
+                <span class="tag">Adobe XD </span>
+                <span class="tag">English C2 [cite: 62]</span>
+                <span class="tag">Blockchain Analysis [cite: 70]</span>
             </div>
         </section>
+
+        <section id="contact" class="reveal" style="text-align: center;">
+            <h2 style="color: var(--neon-orange);">Get in Touch</h2>
+            <p>Email: halilcuruk57@gmail.com [cite: 4]</p>
+            <p>Phone: +90 546 798 5836 [cite: 3]</p>
+        </section>
+    </div>
+
+    <script>
+        // Scroll Reveal Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Initial check
+        reveal();
+    </script>
+</body>
+</html>

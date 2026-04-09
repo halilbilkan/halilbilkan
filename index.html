@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Professional Neon</title>
+    <title>Halil Bilkan | Portfolio</title>
     <style>
         :root {
             --bg-color: #050a15;
@@ -28,7 +28,8 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            transition: background-color 0.4s, color 0.4s;
+            transition: background-color 0.4s;
+            line-height: 1.6;
         }
 
         /* Theme Toggle */
@@ -41,58 +42,88 @@
         }
 
         header {
-            height: 50vh;
+            height: 60vh;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
             border-bottom: 2px solid var(--neon-orange);
-            box-shadow: 0 0 20px rgba(255, 157, 0, 0.1);
+            text-align: center;
+            background: radial-gradient(circle at center, #101b30 0%, var(--bg-color) 70%);
         }
 
         h1 {
-            font-size: 3rem; letter-spacing: 4px;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 30px var(--neon-blue);
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin: 0;
+            text-shadow: 0 0 15px var(--neon-blue);
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .subtitle {
+            color: var(--neon-orange);
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+        section { margin-bottom: 80px; }
 
         h2 {
-            border-left: 4px solid var(--neon-orange);
-            padding-left: 15px; color: var(--neon-orange);
-            text-shadow: 0 0 8px var(--neon-orange);
-            margin-bottom: 30px;
+            border-left: 5px solid var(--neon-orange);
+            padding-left: 15px;
+            color: var(--neon-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
         }
 
-        /* Skills Section */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        /* Experience & Education Cards */
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 2px solid var(--neon-blue);
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .date { color: var(--neon-blue); font-weight: bold; font-size: 0.9rem; }
+        .location { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px; }
+        h3 { margin: 10px 0 5px 0; color: #fff; }
+        .company { color: var(--neon-orange); font-weight: 600; margin-bottom: 10px; display: block; }
+
+        /* Skills Tags */
+        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
-            padding: 8px 18px; border: 1px solid var(--neon-blue);
-            border-radius: 4px; color: var(--neon-blue); font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: rgba(0, 212, 255, 0.05);
         }
-        .tag:nth-child(even) { border-color: var(--neon-orange); color: var(--neon-orange); }
+        .tag.orange { border-color: var(--neon-orange); color: var(--neon-orange); }
 
-        /* Projects Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card {
-            background: var(--card-bg); padding: 25px; border-radius: 8px;
-            border: 1px solid #1b2533; transition: 0.3s;
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
         }
-        .card:hover {
-            border-color: var(--neon-blue); transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        .contact-item {
+            padding: 20px;
+            border: 1px solid #1b2533;
+            border-radius: 8px;
         }
+        .contact-item strong { display: block; color: var(--neon-blue); margin-bottom: 5px; }
 
-        /* Contact Form */
-        input, textarea {
-            width: 100%; padding: 12px; margin-bottom: 15px;
-            background: rgba(0,0,0,0.2); border: 1px solid #1b2533;
-            color: white; border-radius: 4px;
-        }
-        .btn {
-            padding: 12px 30px; background: transparent;
-            border: 2px solid var(--neon-orange); color: var(--neon-orange);
-            font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
-        .btn:hover { background: var(--neon-orange); color: #000; box-shadow: 0 0 15px var(--neon-orange); }
+        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid #1b2533; }
     </style>
 </head>
 <body>
@@ -100,67 +131,76 @@
     <button id="theme-toggle" class="theme-btn"><span id="theme-icon">🌙</span></button>
 
     <header>
-        <h1>YOUR NAME</h1>
-        <p style="color: var(--neon-blue); font-weight: bold;">PORTFOLIO & RESUME</p>
+        <h1>HALİL BİLKAN</h1>
+        <div class="subtitle">Educator • Content Creator • Designer</div>
+        <p style="margin-top: 20px; color: var(--text-dim);">Gaziantep, Türkiye</p>
     </header>
 
     <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Dedicated professional with a focus on creating impactful educational content and analyzing complex global trends. I specialize in turning data and language into interactive digital experiences.</p>
+        
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="timeline-item">
+                <span class="date">2021 - CURRENT</span>
+                <h3>English Teacher</h3>
+                <span class="company">Turkish Republic State School</span>
+                <p>Teaching English language to children within the state education system.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2022 - 2023</span>
+                <h3>Head of Content / Content Creator</h3>
+                <span class="company">Aybee Bilişim</span>
+                <p>Managed content teams, created professional graphics, and coordinated team collaborations.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2022 - 2023</span>
+                <h3>Crypto Marketing & Global Relations</h3>
+                <span class="company">Univel Metaverse</span>
+                <p>Managed global project relations, created marketing solutions, and built partnerships with crypto projects and companies.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2021 - 2022</span>
+                <h3>Graphic Designer</h3>
+                <span class="company">Griffin Art</span>
+                <p>Designed illustrations, produced 2D images, GIFs, stickers, and creative content for various projects.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline-item">
+                <span class="date">2022 - CURRENT</span>
+                <h3>Political Sciences</h3>
+                <span class="company">Gaziantep University</span>
+            </div>
+            <div class="timeline-item">
+                <span class="date">2014 - 2019</span>
+                <h3>English Language Teaching</h3>
+                <span class="company">Amasya University</span>
+            </div>
+            <div class="timeline-item">
+                <span class="date">2017 - 2018</span>
+                <h3>English Philology (Erasmus)</h3>
+                <span class="company">Pomeranian Academy (Poland)</span>
+            </div>
         </section>
 
         <section id="skills">
-            <h2>Skills</h2>
-            <div class="tag-container">
-                <span class="tag">Curriculum Design</span>
-                <span class="tag">Technical Writing</span>
-                <span class="tag">Educational Assessment</span>
-                <span class="tag">English Pedagogy</span>
-                <span class="tag">Data Visualization</span>
+            <h2>Technical & Language Skills</h2>
+            <div class="tag-group">
+                <span class="tag">English (C2 Proficient)</span>
+                <span class="tag">Turkish (Native)</span>
+                <span class="tag">Russian (A2)</span>
+                <span class="tag orange">Adobe Photoshop</span>
+                <span class="tag orange">Adobe Illustrator</span>
+                <span class="tag orange">Adobe InDesign</span>
+                <span class="tag orange">After Effects</span>
+                <span class="tag orange">Adobe XD</span>
+                <span class="tag">Blockchain Analysis</span>
+                <span class="tag">Microsoft Office Suite</span>
             </div>
         </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Vocabulary Marathon</h3>
-                    <p>An interactive digital module for 100+ core academic terms.</p>
-                </div>
-                <div class="card">
-                    <h3>Economic Analysis</h3>
-                    <p>Research on purchasing power and sociological trends.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" style="margin-top: 50px;">
-            <h2>Contact</h2>
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Email Address">
-                <textarea rows="4" placeholder="How can I help?"></textarea>
-                <button type="button" class="btn">Send Message</button>
-            </form>
-        </section>
-    </div>
-
-    <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            themeIcon.innerText = body.classList.contains('light-theme') ? '☀️' : '🌙';
-            localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
-        });
-
-        if (localStorage.getItem('theme') === 'light') {
-            body.classList.add('light-theme');
-            themeIcon.innerText = '☀️';
-        }
-    </script>
-</body>
-</html>
